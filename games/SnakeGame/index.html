@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <script language="javascript" language="Javascript" src="snake.js"></script>
+    <link rel="icon" href="images/snakeIconBig.png">
+    <title>Snake | The Board Game</title>
+</head>
+<body>
+    <section id="menuStructure">
+        <div id="menuContainer">
+            <img src="images/title.png" alt=""> 
+            <br>
+            <img src="images/snakeIcon.png" alt="Snake Icon">
+            <div id="menuLevels">
+                <button class="menuBtn" id="btnEasy">Easy</button>
+                <button class="menuBtn" id="btnMedium">Medium</button>
+                <button class="menuBtn" id="btnHard">Hard</button>
+                <button class="menuBtn" id="btnAsian">Asian</button>
+            </div>
+            <button id="creditsBtn">Credits</button>
+        </div>
+    </section>
+    <section id="game">
+        <div>
+            <p id="output"></p>
+            <div id="board"></div>
+        </div>
+    </section>
+    <div id="overlayCredits">
+        <div id="developersInfo">
+            <h1 class="developersTitle">Developers:</h1>
+            <h2>Joao de Castro - 210100342</h2>
+            <h2>Miguel Santos - 210100303</h2>
+            <h2>David Rodrigues - 210100337</h2>
+            <button id="exitBtn">Exit</button>
+        </div>
+    </div>
+    <div id="overlayGameOver">
+        <div>
+            <h1 class="gameOverTitle">GAME OVER</h1>
+            <p id="score"></p>
+            <button id="exitBtnGameOver">Back to Menu</button>
+        </div>
+    </div>
+    <audio id="menuSound" loop autoplay>
+        <source src="audio/jungleAudio.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>

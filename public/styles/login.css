@@ -1,0 +1,138 @@
+body {
+    margin: 0%;
+}
+
+.structure-base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/space.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.structure-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 100vh;
+    /* background: linear-gradient(0.50turn, #9d6cd7, #331b59); */
+    background-color: rgba(76, 15, 100, 0.5);
+}
+
+.title-login {
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: "Press Start 2P", Arial, sans-serif;
+    font-size: 200%;
+    color: white;
+}
+
+.form-input {
+    outline: none;
+    display: block;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 5%;
+    padding: 12px;
+    font-family: "Press Start 2P", Arial, sans-serif;
+    font-size: 100%;
+    border: 3px solid #331b59;
+    /* border-radius: 0.25rem; */
+    transition: all ease 0.3s;
+}
+
+.div-form p {
+    margin-left: 8%;
+    font-family: "Press Start 2P", Arial, sans-serif;
+}
+
+.div-form a {
+    text-decoration: none;
+    font-family: 'MS Reference Sans Serif', Arial, sans-serif;
+    color: #097eef;
+}
+
+.div-form a:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 95%;
+    margin-inline: auto;
+    margin-block-start: 15%;
+    margin-block-end: 5%;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Press Start 2P", Arial, sans-serif;
+    font-size: 130%;
+    color: white;
+    background-color: rgba(0, 119, 255, 0);
+    border: none;
+}
+
+.btn-login:hover {
+    cursor: pointer;
+    background: linear-gradient(0.40turn, #a3387c, #0c4693);
+}
+
+.btn-login:active {
+    outline: 0;
+}
+
+.btn-login:focus {
+    outline: 0;
+}
+
+/* Alliens */
+.allien-yellow {
+    width: 70px;
+    position: relative;
+    top: 370px;
+    right: 270px;
+    animation-name: movimentationAllienYellow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.allien-red {
+    width: 100px;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    animation-name: movimentationAllienRed;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.void {
+    width: 100px;
+    position: relative;
+    top: 200px;
+    left: 20px;
+    animation-name: movimentationAllienYellow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+/* Animations */
+@keyframes movimentationAllienYellow {
+    0% { top: 370px; }
+    50% { top: 380px; }
+    100% { top: 370px; }
+}
+
+@keyframes movimentationAllienRed {
+    0% { top: -100px; }
+    50% { top: -75px; }
+    100% { top: -100px; }
+}

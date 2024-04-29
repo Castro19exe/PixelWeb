@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,48 +8,35 @@
     <link rel="stylesheet" href="public/styles/index.css">
     <link rel="icon" href="public/images/logo.png">
     <script src=""></script>
-    <title>Pixel Web</title>
+    <title>Pixel Web | Início</title>
 </head>
 <body>
     <header class="menu" id="Menu">
         <h1>Pixel Web</h1>
-        <a class="loginBtn" href="pages/login.php">INICIAR SESSÃO</a>
+        <div>
+            <a class="menuBtn" href="views/register.php">Create Account</a>
+            <a class="menuBtn" href="views/login.php">Login</a>
+        </div>
     </header>
     <section class="titleContainer">
-        <h1>Jogos</h1>
+        <h1>Games</h1>
     </section>
-    <section class="gameContainer">
-        <div class="testgame">
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
-            <div class="game">
-                afaffa
-            </div>
+    <section class="structure">
+        <div class="gameContainer">
+            <a href="games/PacMan/index.html">
+                <div class="game"></div>
+            </a>
+            <a href="games/SnakeGame/index.html">
+                <div class="game"></div>
+            </a>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
         </div>
     </section>
 </body>
