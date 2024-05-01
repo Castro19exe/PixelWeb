@@ -18,10 +18,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25vw;
-    height: 100vh;
-    /* background: linear-gradient(0.50turn, #9d6cd7, #331b59); */
-    background-color: rgba(76, 15, 100, 0.5);
+    width: 40vw;
+    padding: 30px;
+    background-color: #001d3d;
+    border: 3px solid #ffc300;
+    box-shadow: 25px 25px #ffc300;
+}
+
+.structure-align div {
+    width: 100%;
+}
+
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.structure-align img {
+    width: 50%;
 }
 
 .title-login {
@@ -37,12 +53,13 @@ body {
     display: block;
     width: 90%;
     margin-inline: auto;
-    margin-block: 5%;
-    padding: 12px;
+    margin-block: 2%;
+    padding: 15px;
     font-family: "Press Start 2P", Arial, sans-serif;
-    font-size: 100%;
-    border: 3px solid #331b59;
-    /* border-radius: 0.25rem; */
+    font-size: 90%;
+    color: #ffc300;
+    background-color: #000814;
+    border: 3px solid #ffc300;
     transition: all ease 0.3s;
 }
 
@@ -66,7 +83,7 @@ body {
     display: flex;
     justify-content: center;
     position: relative;
-    width: 95%;
+    width: 90%;
     margin-inline: auto;
     margin-block-start: 15%;
     margin-block-end: 5%;
@@ -75,14 +92,15 @@ body {
     text-align: center;
     font-family: "Press Start 2P", Arial, sans-serif;
     font-size: 130%;
-    color: white;
+    color: #ffc300;
     background-color: rgba(0, 119, 255, 0);
     border: none;
 }
 
 .btn-login:hover {
     cursor: pointer;
-    background: linear-gradient(0.40turn, #a3387c, #0c4693);
+    color: #001d3d;
+    background-color: #ffc300;
 }
 
 .btn-login:active {
@@ -135,4 +153,53 @@ body {
     0% { top: -100px; }
     50% { top: -75px; }
     100% { top: -100px; }
+}
+
+.hide {
+    display: none;
+}
+
+.success {
+    position: fixed;
+    left: 25px;
+    bottom: 15px;
+    min-width: 250px;
+    margin: auto;
+    padding: 16px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 15px;
+    color: #fff;
+    background-color: rgb(79, 167, 44);
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+
+.erro {
+    position: fixed;
+    left: 25px;
+    bottom: 15px;
+    min-width: 200px;
+    margin: auto;
+    padding: 16px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 15px;
+    color: #fff;
+    background-color: rgb(206, 63, 63);
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+  
+@-webkit-keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 15px; opacity: 1; }
+}
+  
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 15px; opacity: 1; }
 }

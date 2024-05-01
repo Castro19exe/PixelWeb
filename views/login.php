@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +10,42 @@
     <title>Pixel Web | Login</title>
 </head>
 <body>
-    
     <section class="structure-base">
         <div class="structure-align">
             <div>
-                <!-- <img src="../public/images/void.png" alt="" class="void">
-                <img src="../public/images/allien2.png" alt="" class="allien-red">
-                <img src="../public/images/allien1.png" alt="" class="allien-yellow"> -->
-                <!-- <h1 class="title-login"> Login </h1> -->
-                <form id="login-form">
-                    <input type="text" name="username" class="form-input" placeholder="Username" autofocus>
-                    <input type="password" name="password" class="form-input" placeholder="Password">
-                    <!-- <p> Don't have an account? <a href="views/register.php"> CREATE HERE </a> </p> -->
+                <form action="../controller/login-controller.php" method="POST" id="login-form">
+                    <input type="text" name="username" class="form-input" placeholder="Username" autofocus autocomplete="off">
+                    <input type="password" name="password" class="form-input" placeholder="Password" autocomplete="off">
                     <button type="submit" name="submit" class="btn-login"> Login </button>
                 </form>
             </div>
+        </div>
+
+        <div class="form-group 
+            <?php 
+                if(empty($_SESSION['error_message']))
+                    echo("hide");
+            ?>
+            ">
+            <span class="erro">
+                <?php if(!empty($_SESSION['error_message']))
+                    echo $_SESSION['error_message'];
+                    unset($_SESSION['error_message']);
+                ?>
+            </span>
+        </div>
+        <div class="form-group 
+            <?php 
+                if(empty($_SESSION['success_message']))
+                    echo("hide");
+            ?>
+            ">
+            <span class="success">
+                <?php if(!empty($_SESSION['success_message']))
+                    echo $_SESSION['success_message'];
+                    unset($_SESSION['success_message']);
+                ?>
+            </span>
         </div>
     </section>
 </body>

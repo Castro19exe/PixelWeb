@@ -3,10 +3,10 @@
         global $connection;
 
         try {
-            $query = "SELECT COUNT(id_user) AS user_count FROM `user` WHERE `userName` = '$name'";
+            $query = "SELECT COUNT(userID) AS userCount FROM user WHERE userName = '$name'";
             $result = mysqli_query($connection, $query);
             while($row = mysqli_fetch_assoc($result)) {
-                $nome_count = $row['user_count'];
+                $nome_count = $row['userCount'];
             }
 
             return $nome_count;
@@ -20,10 +20,10 @@
         global $connection;
 
         try {
-            $query = "SELECT COUNT(id_user) AS email_count FROM `user` WHERE `userEmail` = '$email'";
+            $query = "SELECT COUNT(userID) AS emailCount FROM user WHERE `userEmail` = '$email'";
             $result = mysqli_query($connection, $query);
             while($row_pass = mysqli_fetch_assoc($result)) {
-                $email_count = $row_pass['email_count'];
+                $email_count = $row_pass['emailCount'];
             }
 
             return $email_count;
@@ -33,43 +33,43 @@
         }
     }
 
-    function insertUser($nome, $email, $password) {
-        global $conn;
+    function insertUser($name, $email, $password) {
+        global $connection;
         
         try {
-            $insert = "INSERT INTO user (nome_user, email_user, pass_user) VALUES ( '$nome', '$email', SHA1('$password') )";
-            $result = mysqli_query($conn, $insert);
+            $insert = "INSERT INTO user (userName, userEmail, userPassword) VALUES ( '$name', '$email', SHA1('$password') )";
+            $result = mysqli_query($connection, $insert);
 
-            return;
+            return $result;
         }
         catch (Exception $error) {
             echo 'Caught exception: ',  $error -> getMessage();
         }
     }
 
-    function selectUser($nome, $password) {
-        global $conn;
+    function selectUser($name, $password) {
+        global $connection;
 
         try {
-            $select = "SELECT id_user, email_user, imagem_user, cargo_user, COUNT(id_user) AS users_count FROM `user` WHERE `nome_user` = '$nome' AND `pass_user` = SHA1('$password')";
-		    $result = mysqli_query($conn, $select);
+            $select = "SELECT userID, userEmail, userImage, userRole, COUNT(userID) AS usersCount FROM user WHERE userName = '$name' AND userPassword = SHA1('$password')";
+		    $result = mysqli_query($connection, $select);
             while($row = mysqli_fetch_assoc($result)) {
-                $count = $row['users_count'];
-                $user_id = $row['id_user'];
-                $user_email = $row['email_user'];
-                $user_image = $row['imagem_user'];
-                $user_rank = $row['cargo_user'];
+                $count = $row['usersCount'];
+                $user_id = $row['userID'];
+                $user_email = $row['userEmail'];
+                $user_image = $row['userImage'];
+                $user_rank = $row['userRole'];
             }
 
             if($count != 1) {
                 $_SESSION['error_message'] = "Nome do utilizador ou palavra-passe inválidas!";
-                header("Location: ../../pages/login.php");
+                header("Location: ../views/login.php");
                 exit;
             }
             else {
-                $_SESSION['user'] = array("id" => $user_id, "name" => $nome, "email" => $user_email, "image" => $user_image, "rank" => $user_rank);
+                $_SESSION['user'] = array("id" => $user_id, "name" => $name, "email" => $user_email, "image" => $user_image, "rank" => $user_rank);
 
-                header("Location: ../../pages/home-log.php");
+                header("Location: ../views/home-log.php");
             }
 
             return $result;

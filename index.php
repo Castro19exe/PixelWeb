@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php 
+    session_start();
+    require 'database/connection/config.php';
+    require 'repository/games-repository.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,20 +27,13 @@
     </section>
     <section class="structure">
         <div class="gameContainer">
-            <a href="games/PacMan/index.html">
-                <div class="game"></div>
-            </a>
-            <a href="games/SnakeGame/index.html">
-                <div class="game"></div>
-            </a>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
-            <div class="game"></div>
+            <?php
+            foreach(selectAllGames() as $dados) { ?>
+                <a href="games/<?php echo $dados['gameLink'] ?>">
+                    <div class="game" style="background-image: url('public/images/<?php echo $dados['gameImage'] ?>')"></div>
+                </a>
+            <?php
+            } ?>
         </div>
     </section>
 </body>

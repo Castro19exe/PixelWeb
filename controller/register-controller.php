@@ -3,16 +3,16 @@
     require '../database/connection/config.php';
     require '../repository/user-repository.php';
 
-    $nome = $conn -> real_escape_string($_POST['username']);
-    $email = $conn -> real_escape_string($_POST['email']);
-    $password = $conn -> real_escape_string($_POST['password']);
-    $con_password = $conn -> real_escape_string($_POST['con-password']);
+    $name = $connection -> real_escape_string($_POST['username']);
+    $email = $connection -> real_escape_string($_POST['email']);
+    $password = $connection -> real_escape_string($_POST['password']);
+    $con_password = $connection -> real_escape_string($_POST['con-password']);
     
-    if(empty($nome) || empty($email) || empty($password) || empty($con_password))  {
+    if(empty($name) || empty($email) || empty($password) || empty($con_password))  {
         $_SESSION['error_message'] = "Todos os campos têm de estar preenchidos!";
         header("Location: ../views/register.php");
     }
-    elseif(preg_match("/[\[^\'£$%^&*()}{@:\'#~?><>,;@\|\-=\-_+\-¬\`\]]/", $nome)) {
+    elseif(preg_match("/[\[^\'£$%^&*()}{@:\'#~?><>,;@\|\-=\-_+\-¬\`\]]/", $name)) {
         $_SESSION['error_message'] = "Apenas pode usar letras e números";
         header("Location: ../views/register.php");
     }
@@ -36,7 +36,7 @@
 		$_SESSION['error_message'] = "Password tem de ter pelo menos um caracter minúsculo e maiúsculo!";
 		header("Location: ../views/register.php");
 	}
-    elseif(verficationUsingUsername($nome) >= 1) {
+    elseif(verficationUsingUsername($name) >= 1) {
         $_SESSION['error_message'] = "Este nome de utilizador já existe!";
 		header("Location: ../views/register.php");
     }
@@ -45,10 +45,10 @@
 		header("Location: ../views/register.php");
     }
     else {
-        insertUser($nome, $email, $password);
+        insertUser($name, $email, $password);
         header("Location: ../views/login.php");
         $_SESSION['success_message'] = "Utilizador criado com sucesso!";
     }
 
-    $conn->close();
+    $connection->close();
 ?>
