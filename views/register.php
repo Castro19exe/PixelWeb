@@ -39,19 +39,6 @@
                 ?>
             </span>
         </div>
-        <div class="form-group 
-            <?php 
-                if(empty($_SESSION['success_message']))
-                    echo("hide");
-            ?>
-            ">
-            <span class="success">
-                <?php if(!empty($_SESSION['success_message']))
-                    echo $_SESSION['success_message'];
-                    unset($_SESSION['success_message']);
-                ?>
-            </span>
-        </div>
     </section>
 </body>
 </html>

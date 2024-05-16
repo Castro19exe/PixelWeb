@@ -11,7 +11,7 @@
         header("Location: ../views/login.php");
     }
     elseif(preg_match("/[\[^\'£$%^&*()}{@:\'#~?><>,;@\|\-=\-_+\-¬\`\]]/", $name)) {
-        $_SESSION['error_message'] = "Apenas pode usar letras e números!";
+        $_SESSION['error_message'] = "O nome de conta apenas pode ter letras e números!";
         header("Location: ../views/login.php");
         exit;
     }

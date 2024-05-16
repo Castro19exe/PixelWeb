@@ -20,22 +20,22 @@
 		$_SESSION['error_message'] = "A Palavra-Chave é difirente da sua confirmação!";
         header("Location: ../views/register.php");
 	}
-    elseif(strlen($password) <= 5 ) {
-		$_SESSION['error_message'] = "Password tem de ter mais de 5 caracteres!";
-		header("Location: ../views/register.php");
-	}
-    elseif(!preg_match("#[0-9]+#", $password)) {
-		$_SESSION['error_message'] = "Password tem de ter pelo menos um número!";
-		header("Location: ../views/register.php");
-	}
-	elseif(!preg_match("#[a-z]+#", $password)) {
-		$_SESSION['error_message'] = "Password tem de ter pelo menos um caracter minúsculo e maiúsculo!";
-		header("Location: ../views/register.php");
-	}
-    elseif(!preg_match("#[A-Z]+#", $password)) {
-		$_SESSION['error_message'] = "Password tem de ter pelo menos um caracter minúsculo e maiúsculo!";
-		header("Location: ../views/register.php");
-	}
+    // elseif(strlen($password) <= 5 ) {
+	// 	$_SESSION['error_message'] = "Password tem de ter mais de 5 caracteres!";
+	// 	header("Location: ../views/register.php");
+	// }
+    // elseif(!preg_match("#[0-9]+#", $password)) {
+	// 	$_SESSION['error_message'] = "Password tem de ter pelo menos um número!";
+	// 	header("Location: ../views/register.php");
+	// }
+	// elseif(!preg_match("#[a-z]+#", $password)) {
+	// 	$_SESSION['error_message'] = "Password tem de ter pelo menos um caracter minúsculo e maiúsculo!";
+	// 	header("Location: ../views/register.php");
+	// }
+    // elseif(!preg_match("#[A-Z]+#", $password)) {
+	// 	$_SESSION['error_message'] = "Password tem de ter pelo menos um caracter minúsculo e maiúsculo!";
+	// 	header("Location: ../views/register.php");
+	// }
     elseif(verficationUsingUsername($name) >= 1) {
         $_SESSION['error_message'] = "Este nome de utilizador já existe!";
 		header("Location: ../views/register.php");

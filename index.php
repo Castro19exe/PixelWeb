@@ -1,7 +1,7 @@
 <?php 
     session_start();
     require 'database/connection/config.php';
-    require 'repository/games-repository.php';
+    require 'repository/interface-repository.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +12,24 @@
     <link rel="stylesheet" href="public/styles/index.css">
     <link rel="icon" href="public/images/logo.png">
     <script src=""></script>
-    <title>Pixel Web | Início</title>
+    <title>Pixel Web | Home</title>
 </head>
 <body>
     <header class="menu" id="Menu">
         <h1>Pixel Web</h1>
-        <div>
-            <a class="menuBtn" href="views/register.php">Create Account</a>
-            <a class="menuBtn" href="views/login.php">Login</a>
-        </div>
+        <?php 
+        if(!empty($_SESSION['user']['id'])) { ?>
+            <div>
+                <a class="menuBtn" href=""><?php echo $_SESSION['user']['name']; ?></a>
+            </div>
+        <?php
+        }
+        else { ?>
+            <div>
+                <a class="menuBtn" href="views/register.php">Create Account</a>
+                <a class="menuBtn" href="views/login.php">Login</a>
+            </div>
+        <?php } ?>
     </header>
     <section class="titleContainer">
         <h1>Games</h1>

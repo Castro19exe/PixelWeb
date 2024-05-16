@@ -58,7 +58,7 @@
                 $user_id = $row['userID'];
                 $user_email = $row['userEmail'];
                 $user_image = $row['userImage'];
-                $user_rank = $row['userRole'];
+                $user_role = $row['userRole'];
             }
 
             if($count != 1) {
@@ -67,9 +67,8 @@
                 exit;
             }
             else {
-                $_SESSION['user'] = array("id" => $user_id, "name" => $name, "email" => $user_email, "image" => $user_image, "rank" => $user_rank);
-
-                header("Location: ../views/home-log.php");
+                $_SESSION['user'] = array("id" => $user_id, "name" => $name, "email" => $user_email, "image" => $user_image, "rank" => $user_role);
+                header("Location: ../index.php");
             }
 
             return $result;
